@@ -1,7 +1,7 @@
 ---
 - name: Install Intellij
-  become: yes
+  become: true
   tags: install
   snap:
-    classic: yes
+    classic: true
     name: intellij-idea-community
