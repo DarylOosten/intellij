@@ -1,7 +1,14 @@
 ---
-- name: Install Intellij
+- name: Install intellij
   become: true
   tags: install
-  snap:
-    classic: true
-    name: intellij-idea-community
+  block:
+
+    - name: Install snapd
+      package:
+        name: snapd
+
+    - name: Install intellij community edition
+      snap:
+        classic: true
+        name: intellij-idea-community
