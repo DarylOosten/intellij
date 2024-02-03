@@ -1,14 +1,10 @@
 ---
-- name: Install intellij
-  become: true
+- name: Install Intellij Community Edition
   tags: install
+  become: true
   block:
 
-    - name: Install snapd
-      package:
-        name: snapd
-
-    - name: Install intellij community edition
-      snap:
-        classic: true
-        name: intellij-idea-community
+    - name: Install flatpak
+      community.general.flatpak:
+        name: com.jetbrains.IntelliJ-IDEA-Community
+        state: present
